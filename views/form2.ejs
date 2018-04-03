@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/form2.css">
+    <% include ./share/head.ejs %>
+</head>
+
+<body>
+    <form action="/sendpic?callback=<%=callback%>" method="post" enctype="multipart/form-data" class="ooo">
+        <input type="file" name="pic" style="display:none;">
+    </form>
+    <p class="bg-danger">+</p>
+    <script>
+        $("p").click(function () {
+            $(this).siblings("form").find("input[type=file]").trigger("click");
+        });
+        $("input[type=file]").bind("change", function () {
+            $(this).parent("form")[0].submit();
+            window.parent.count++;
+            window.parent.start_loading<%=callback %>();
+        })
+    </script>
+</body>
+
+</html>

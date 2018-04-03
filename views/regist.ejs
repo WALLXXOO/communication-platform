@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>问答平台-注册页面</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/regist.css">
+    <% include ./share/head.ejs %>
+</head>
+
+<body>
+    <!-- 导航条开始 -->
+    <% include ./share/nav.ejs %>
+        <!-- 导航条结束 -->
+        <!-- 注册域开始 -->
+        <div class="container mt-5">
+            <h1>注册</h1>
+            <hr/>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input class="form-control is-valid" id="Email" aria-describedby="emailHelp" placeholder="Enter email" autofocus>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control is-valid" id="Password1" placeholder="Password">
+                            <span class="badge badge-pill badge-danger hide ss">简单</span>
+                            <span class="badge badge-pill badge-warning hide ss">一般</span>
+                            <span class="badge badge-pill badge-info hide ss">中等</span>
+                            <span class="badge badge-pill badge-success hide ss">复杂</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password Again</label>
+                            <input type="password" class="form-control is-valid" id="Password2" placeholder="Password">
+                        </div>
+                        <button class="btn btn-primary" id="tijiao">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 注册域结束 -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary mm" style="display:none" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Jason问答平台</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary jj">Jump Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/regist.js"></script>
+</body>
+
+</html>

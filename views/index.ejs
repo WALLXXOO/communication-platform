@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Jason问答平台</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <% include ./share/head.ejs %>
+</head>
+
+<body>
+    <!-- 导航条开始 -->
+    <% include ./share/nav.ejs %>
+        <!-- 导航条结束 -->
+        <!-- 首页域开始 -->
+        <div class="container mt-5">
+            <h1>Jason问答平台</h1>
+            <hr class="yy" />
+            <div class="container">
+                <div class="row">
+                    <!-- 第1列开发 -->
+                    <div class="col">
+                        <div class="card text-white bg-danger mb-3 rr" style="max-width: 18rem;">
+                            <div class="card-header">WEB-Owner_Jiang_Jason</div>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <img src="1.jpg" width=50 height=50>
+                                </h5>
+                                <p class="card-text">Now, the Web-enabled here have a lightning-fast means of exchanging information, rumors,
+                                    and jokes.</p>
+                                <hr/>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm ww">
+                                    <button type="button" class="btn btn-dark">提问</button>
+                                    <button type="button" class="btn btn-link">122</button>
+                                </div>
+                                <div class="col-sm ww">
+                                    <button type="button" class="btn btn-dark">回答</button>
+                                    <button type="button" class="btn btn-link">4534</button>
+                                </div>
+                                <div class="col-sm ww">
+                                    <button type="button" class="btn btn-dark">被赞</button>
+                                    <button type="button" class="btn btn-link">765</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- 第2列开发 -->
+                    <div class="col-6 rrr">
+                        <div class="form-group rd">
+                            <label for="exampleFormControlTextarea1">Think of what you feel</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-outline-success rf">插入图片</button>
+                        <button type="button" class="btn btn-outline-warning oo">发布</button>
+                        <div class="card text-white  bg-dark ee" style="max-width: 39rem;margin-top:10px;border:1px dashed white;display:none;">
+                            <div class="card-body tt">
+                                <ul class="pic">
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="page_box">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination" id="pagination">
+                                    <li class="page-item" id="Previous">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    </li>
+
+
+                                    <li class="page-item" id="Next">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                    </div>
+
+                    <!-- 第3列开发 -->
+                    <div class="col">
+                        <div class="jumbotron">
+                            <h1 class="display-4" style="color:blue;">คำตอบ</h1>
+                            <p class="lead" style="color:gray;">เป็นความรักที่ไม่ต้องการคำพูดใด ให้มาจำกัดความ</p>
+                            <hr class="my-4">
+                            <p style="color:black;">ในขณะที่เราคิดถึงคนๆนึงตลอดเวลา เค้าคนนั้นก็อาจคิดถึงคนอื่นอยู่ก็เป็นได้ และบ้างครั้งก็อาจมีคนที่คิดถึงเรา
+                                โดยที่เราไม่สนใจเลยเช่นกัน</p>
+                            <p class="lead">
+                                <a class="btn btn-primary btn-lg eee" href="/login" role="button">Login In</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 首页域结束 -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary tt" data-toggle="modal" data-target="#exampleModal" style="display:none;">
+
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Jason问答平台</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        发帖成功！！！
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary az" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+<script>
+
+    function Pagination(pagetotal) {
+        this.$dom = $("#pagination");
+
+        this.pagetotal = pagetotal;
+
+        this.bindEvent();
+    }
+    Pagination.prototype.bindEvent = function () {
+        var self = this;
+        this.$dom.delegate(".pl a", "click", function () {
+            if ($(this).html() != "...") {
+                var page = Number($(this).html());
+                //设置分页条类型
+                self.setShape(page);
+                //拉取数据
+                window.loadData(page)
+            }
+        });
+    }
+
+
+    Pagination.prototype.setShape = function (curpage) {
+        //干掉所有pl普通li
+        this.$dom.find(".pl").remove();
+        var pagetotal = this.pagetotal;
+
+        if (pagetotal <= 7) {
+            for (var i = 1; i <= pagetotal; i++) {
+                $("#Next").before("<li class='page-item pl'><a class='page-link'>" + i + "</a></li>");
+            }
+            $(".pl").eq(curpage - 1).addClass("active");
+            return;
+        }
+
+        if (curpage < 4) {
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>1</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>2</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>3</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>4</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>...</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + (pagetotal - 1) + "</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + pagetotal + "</a></li>");
+            $(".pl").eq(curpage - 1).addClass("active");
+        } else if (curpage == 4) {
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>1</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>2</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>3</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>4</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>5</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>...</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + pagetotal + "</a></li>");
+            $(".pl").eq(3).addClass("active");
+        } else if (curpage < pagetotal - 3) {
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>1</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>...</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + (curpage - 1) + "</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + curpage + "</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + (curpage + 1) + "</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>...</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + pagetotal + "</a></li>");
+            $(".pl").eq(3).addClass("active");
+        } else if (curpage == pagetotal - 3) {
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>1</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>...</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + (pagetotal - 4) + "</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + (pagetotal - 3) + "</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + (pagetotal - 2) + "</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + (pagetotal - 1) + "</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + (pagetotal) + "</a></li>");
+            $(".pl").eq(3).addClass("active");
+        } else {
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>1</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>2</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>...</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + (pagetotal - 3) + "</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + (pagetotal - 2) + "</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + (pagetotal - 1) + "</a></li>");
+            $("#Next").before("<li class='page-item pl'><a class='page-link'>" + (pagetotal) + "</a></li>");
+            $(".pl").eq(curpage - pagetotal - 1).addClass("active");
+        }
+    }
+
+
+    function Question(dictionary) {
+        var self = this;
+        $.ajax({
+            "url": "/getquestioninfo",
+            "data": {
+                "email": dictionary.email
+            },
+            "type": "POST",
+            "success": function (data) {
+
+                self.$dom.find("p.ry").html(data.results[0].nickname);
+                self.$dom.find("p.ww img").attr("src", data.results[0].avatar);
+            }
+        });
+        this.time = dictionary.time.substr(0, 10);
+        this.$dom = $(['                        <div class="card text-white bg-dark mb-3 rf" style="max-width: 45rem;">',
+            '                            <div class="row">',
+            '                                <div class="col-lg-2 ed">',
+            '                                    <p class="ry"></p>',
+            '                                    <p class="ww">',
+            '                                        <img scr="">',
+            '                                    </p>',
+            '                                    <p class="ew">' + this.time + '</p>',
+            '                                </div>',
+            '                                <div class="col-lg-10">',
+            '                                    <p>' + dictionary.content + '</p>',
+            '                                    <ul class="qq">',
+            '                                    </ul>',
+            '                                </div>',
+            '                            </div>',
+            '                        </div>'].join(""));
+        this.$ul = this.$dom.find("ul.qq");
+        for (var j = 0; j < dictionary.images.length; j++) {
+            this.$ul.append($('<li class="ww" style="background-image:url(uploads/' + dictionary.images[j] + ')"><a class="ee" href="uploads/' + dictionary.images[j] + '"></a><li>'));
+        }
+        this.$dom.insertBefore($("div.page_box"));
+    }
+    function getQuestionItem() {
+        $.ajax({
+            "url": "/question?page=1&pagesize=3",
+            "type": "GET",
+            "success": function (data) {
+                $("div.rf").remove();
+                var questionAll = data.results;
+                var countAll = data.count;
+                console.log(questionAll);
+                for (var i = 0; i < questionAll.length; i++) {
+                    new Question(questionAll[i]);
+                }
+                var pagetotal = Math.ceil(data.count / 3);
+                window.p = new Pagination(pagetotal);
+                p.setShape(1);
+            }
+        });
+    }
+    getQuestionItem();
+
+    //拉取每个页面的数据
+    function loadData(page) {
+        $("div.rf").remove();
+        $.get("/question?page=" + page + "&pagesize=3", function (data) {
+            for (var i = 0; i < data.results.length; i++) {
+                new Question(data.results[i]);
+            }
+            p.setShape(page);
+        });
+    }
+
+    //如果用户登陆了，拉起默认数据
+    if ($("span#flag_login").html() == 1) {
+        var email = $("span#flag_email").html();
+        $.ajax({
+            "url": "/info",
+            "data": {
+                "email": email
+            },
+            "type": "CHECKOUT",
+            "success": function (data) {
+                var nickname = data.results[0].nickname;
+                $(".card-header").html("Owner-" + nickname);
+                var src = data.results[0].avatar;
+                $("h5 img").attr("src", src);
+                var introduction = data.results[0].introduction;
+                $(".card-text").html(introduction);
+                $("div.rr").removeClass("bg-danger").addClass("bg-warning");
+                $("div.card-header").css("color", "black");
+                $("p.card-text").css("color", "black");
+                $("div.ww").css("color", "black");
+                $("div.rd").show();
+                $("button.rf").show();
+                $("button.oo").show();
+                $("a.eee").html("Change Info");
+                $("a.eee").attr("href", "/info");
+            }
+        });
+    }
+    $("button.rf").click(function (event) {
+        event.stopPropagation();
+        $("div.ee").fadeIn(2000);
+    });
+    $(document).click(function (event) {
+        var target = event.target || event.srcElement;
+        if ($(target).parents("div.ee").length <= 0 && !$(target).is("div.ee")) {
+            $("div.ee").fadeOut(1000);
+        }
+    });
+    var count = 1;
+    var picarr = [];
+    function PicItem() {
+        //Date.parse()得到1970年1月1日0:0:0到现在的毫秒数，拼接一个随机6位数
+        this.id = Date.parse(new Date()) + "" + parseInt(Math.random() * 899999 + 100000);
+
+        this.$dom = $(['<li>',
+            '<p class="remove">x</p>',
+            '<div class="content">',
+            '<iframe src=/form2?callback=fn' + this.id + '></iframe>',
+            '<div class="loading">',
+            '<img src="images/5-160914192R0.gif" style="width:9.3rem;height:9.3rem;">',
+            '</div>',
+            '</div>',
+            '</li>'].join(""));
+        this.$dom.appendTo($("ul.pic"));
+        this.$div = this.$dom.find("div.content");
+        this.$image = this.$dom.find("img");
+        this.$remove = this.$dom.find("p.remove");
+        this.index = 0;
+        var self = this;
+        window["send_pic_finishfn" + this.id] = function (picname) {
+            picarr.push(picname);
+            self.index = picarr.length - 1;
+            self.$div.empty();
+            self.$div.css("backgroundImage", "url(uploads/" + picname + ")");
+            self.$div.css("backgroundSize", "9.3rem 9.3rem");
+            self.$remove.show();
+        }
+        window["start_loadingfn" + this.id] = function () {
+            self.$image.show();
+            if (count == 10) { return; }
+            new PicItem();
+        }
+        this.$remove.click(function (event) {
+            event.stopPropagation();
+            $(this).parents("li").remove();
+            picarr.splice(self.index, 1);
+            count--;
+            if (count == 9) {
+                new PicItem();
+            }
+            console.log(picarr, self.index);
+        });
+    }
+    $()
+    new PicItem();
+    var startindex, endindex;
+    $("ul.pic").sortable({
+        "start": function (event, ui) {
+            startindex = ui.item.index();
+        },
+        "stop": function (event, ui) {
+            endindex = ui.item.index();
+            picarr.splice(endindex, 0, picarr.splice(startindex, 1)[0]);
+        },
+        "items": "li:not(:last)"
+    });
+    $("button.oo").click(function () {
+        $.ajax({
+            "traditional": true,
+            "url": "/question",
+            "data": {
+                "content": $("textarea").val(),
+                "images": picarr
+            },
+            "type": "POST",
+            "success": function (data) {
+                if (data.results == 1) {
+                    $("textarea").val("");
+                    $("ul.pic").empty();
+                    new PicItem();
+                    count = 1;
+                    picarr = [];
+                    $("button.tt").trigger("click");
+                    $("button.az").click(function () {
+                        getQuestionItem();
+                    });
+                }
+            }
+        });
+    });
+
+</script>
+
+</html>

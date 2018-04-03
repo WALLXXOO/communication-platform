@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Jason问答平台</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <% include ./share/head.ejs %>
+</head>
+
+<body>
+    <!-- 导航条开始 -->
+    <% include ./share/nav.ejs %>
+        <!-- 导航条结束 -->
+        <!-- 提示域开始 -->
+        <div class="container mt-5">
+            <div class="jumbotron">
+                <h1 class="display-4">您还没有成功登录Jason问答平台！
+                    <br/>请登录成功后访问个人信息页！</h1>
+                <p class="lead"></p>
+                <hr class="my-4">
+                <p>感谢您的使用！</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="/login" role="button">点击此处跳转登录页</a>
+                </p>
+                <div class="alert alert-danger col-lg-3" role="alert">
+                    10s后页面自动跳转到首页...
+                </div>
+            </div>
+        </div>
+        <!-- 提示域结束 -->
+
+</body>
+<script>
+    var $alert = $("div.alert");
+    var count = 0;
+    var min = 10;
+    var timer = setInterval(function () {
+        count++;
+        min--;
+        $alert.html(min + "s后页面自动跳转到首页...");
+        if (count == 10) {
+            clearInterval(timer);
+            window.location = "/";
+        }
+    }, 1000);
+</script>
+
+</html>

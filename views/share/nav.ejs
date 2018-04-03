@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/">Jason问答平台</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">首页
+                    </a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <% if(!login){%>
+                        <li class="nav-item">
+                            <a class="nav-link <%= column=='login' && 'active' %>" href="/login">登录</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link <%= column=='regist' && 'active' %>" href="/regist">注册</a>
+                        </li>
+                    <% }else{ %>
+                        <li class="nav-item">
+                            <span class="nav-link active" ><img style="width:20px;height:20px;"></span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link active" >欢迎您-<%=email%>&nbsp;&nbsp;||</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/info" style="color:yellow;">更改个人信息</a>
+                        </li>                        
+                    <% } %>
+                    <!-- 页面标记 -->
+                    <span id="flag_login" style="display:none;"><%= login? 1:-1%></span>
+                    <span id="flag_email" style="display:none;"><%= login? email:-1%></span>
+                </ul>
+            </form>
+        </div>
+    </nav>
+</div>

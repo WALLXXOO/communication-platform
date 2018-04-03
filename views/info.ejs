@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Jason问答平台</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/info.css">
+    <% include ./share/head.ejs %>
+</head>
+
+<body>
+    <!-- 导航条开始 -->
+    <% include ./share/nav.ejs %>
+        <!-- 导航条结束 -->
+        <!-- 个人信息开始 -->
+        <div class="container mt-5">
+            <h1>个人信息</h1>
+            <hr/>
+            <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
+                <div class="card-header">email</div>
+                <div class="card-body">
+                    <h5 class="card-title ee">
+                        <%=email%>
+                    </h5>
+                    <p class="card-text">emial注册成功后无法修改哦！</p>
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 50rem;">
+                <div class="card-header">password</div>
+                <div class="card-body">
+                    <h5 class="card-title pp"></h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 50rem;">
+                <div class="card-header">nickname</div>
+                <div class="card-body">
+                    <h5 class="card-title nn"></h5>
+                    <p class="card-text">
+                        <button type="button" class="btn btn-outline-dark az" data-cc="nickname">update nickname</button>
+                    </p>
+                </div>
+            </div>
+            <div class="card text-white bg-warning mb-3" style="max-width: 50rem;">
+                <div class="card-header">avatar</div>
+                <div class="card-body">
+                    <h5 class="card-title aa">
+                        <img class="ii">
+                    </h5>
+                    <input type="submit" class="btn btn-outline-dark" value="update avatar" data-toggle="modal" data-target="#exampleModalCenter">
+                </div>
+            </div>
+            <div class="card text-white bg-info mb-3" style="max-width: 50rem;">
+                <div class="card-header">sex</div>
+                <div class="card-body">
+                    <h5 class="card-title ss"></h5>
+                    <p class="card-text">
+                        <button type="button" class="btn btn-outline-dark az" data-cc="sex">update sex</button>
+                    </p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 50rem;">
+                <div class="card-header">introduction</div>
+                <div class="card-body">
+                    <h5 class="card-title ii"></h5>
+                    <p class="card-text">
+                        <button type="button" class="btn btn-outline-dark az" data-cc="introduction">update introduction</button>
+                    </p>
+                </div>
+            </div>
+            <!-- 个人信息结束 -->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary jj" data-toggle="modal" data-target="#exampleModal" style="display:none;">
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Jason问答平台</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body jkl">
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="text" class="form-control is-invalid ff" id="validationServer03" placeholder="" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary ssa">change</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" style="height:560px;">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Jsaon问答平台</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <iframe src="/form" frameborder="0" width="700" height="460"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+<script src="js/info.js"></script>
+
+</html>
