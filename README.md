@@ -1,4 +1,4 @@
-# 基于MVC架构的交流平台
+# 基于MVC架构的交流平台(RESTful风格的路由)
 communication-platform
 =========================
 Technology Stack
